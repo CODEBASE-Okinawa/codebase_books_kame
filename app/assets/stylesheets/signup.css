@@ -1,10 +1,10 @@
-.usr_login_title{
+.usr_login_title {
     /* max-width: 100%; */
     text-align: center;
     padding-top: 4%;
     min-width: 100vw;
     height: 100vh;
-    background-color: skyblue;
+    background-color: #f7f6f6;
     overflow: hidden;
 }
 
@@ -14,7 +14,7 @@
 
 .usr_login {
     width: 30rem;
-    margin:auto;
+    margin: auto;
     margin-top: 2%;
     padding: 1% 2% 3% 2%;
     /* border: 1px solid; */
@@ -27,7 +27,6 @@
 }
 
 .field {
-    display:inline-block;
+    display: inline-block;
     text-align: left;
 }
-
