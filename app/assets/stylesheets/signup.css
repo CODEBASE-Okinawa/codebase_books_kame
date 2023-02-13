@@ -1,0 +1,32 @@
+.usr_login_title {
+    /* max-width: 100%; */
+    text-align: center;
+    padding-top: 4%;
+    min-width: 100vw;
+    height: 100vh;
+    background-color: #f7f6f6;
+    overflow: hidden;
+}
+
+.usr_login_title h1 {
+    font-size: 2rem;
+}
+
+.usr_login {
+    width: 30rem;
+    margin: auto;
+    margin-top: 2%;
+    padding: 1% 2% 3% 2%;
+    /* border: 1px solid; */
+    border-radius: 50px;
+    background-color: white;
+}
+
+.usr_login h2 {
+    font-size: 1.5rem;
+}
+
+.field {
+    display: inline-block;
+    text-align: left;
+}
