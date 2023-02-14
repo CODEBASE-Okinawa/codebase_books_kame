@@ -4,13 +4,6 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-
-alice:
-  email: "alice@example.com"
-  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  # メールによる認証を行うときに必要いまは必要ない
-  # confirmed_at: <%= Time.now - 100 %>
-
 one: {}
 # column: value
 #
