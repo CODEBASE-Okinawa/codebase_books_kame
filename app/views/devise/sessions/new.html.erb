@@ -15,7 +15,9 @@
       <p>
         <div class="field">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password", :size=>"40"%>
+          <%= f.password_field :password, autocomplete: "current-password", :size=>"40"%><br />
+          <input type="checkbox" id="toggle_password" onClick='passwordShowHide();' >
+          <label>パスワードを表示する</label>
         </div>
       </p>
 
