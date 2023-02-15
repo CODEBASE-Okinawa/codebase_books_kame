@@ -1,16 +1,21 @@
 class BooksController < ApplicationController
-    # ユーザーと管理者のコントローラーです。
+  # ユーザーと管理者のコントローラーです。
 
-    def index
-    end
-    
-    def show
-    end
+  def index
+    @books = Book.all
+    # @title = books[0][:title]
+    # @image = books[0][:image]
+    # @author = books[0][:author]
 
-    def new
-    end
 
-    def edit
-    end
-    
+  end
+
+  def show
+  end
+
+  def new
+  end
+
+  def edit
+  end
 end
