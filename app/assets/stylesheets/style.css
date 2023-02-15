@@ -27,15 +27,15 @@ body {
 .index_image_wrap {
 
     display: block;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     text-align: center;
 }
 
 .index_image {
 
     display: block;
-    height: 150px;
+    height: 120px;
     margin: auto;
 }
 
