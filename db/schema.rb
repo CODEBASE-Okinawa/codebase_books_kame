@@ -10,11 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_12_100444) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_010246) do
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
     t.string "image"
     t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lendings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.integer "status"
+    t.date "lend"
+    t.date "return"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.integer "status"
+    t.date "reserve_start"
+    t.date "reserve_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
