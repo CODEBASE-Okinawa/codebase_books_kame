@@ -10,5 +10,3 @@ User.create!(name:"CodebaseAdmin",
             email:"codebase@email.com",
             password:"codebase",
             status:0)
-
-
