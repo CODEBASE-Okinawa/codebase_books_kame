@@ -11,9 +11,23 @@
   </head>
 
   <body>
+    <%# 本の登録をした際にフラッシュを表示させる %>
+    <div class="container">
+        <% if flash.notice.present? %>
+            <div class="alert alert-success">
+                <%= flash.notice %>
+            </div>
+        <% else %>
+            <div class="alert alert-success">
+                <%= flash.alert %>
+            </div>
+        <% end %>
+    </div>
+
     <%= render 'devise/shared/notifications' %>
     <%= link_to "ログイン", new_user_session_path %>
-    <%= link_to "ログアウト", destroy_user_session_path,data: {"turbo-method": :delete} %> 
+    <%= link_to "ログアウト", destroy_user_session_path,data: {"turbo-method": :delete} %>
+
     <%= yield %>
 
     <%
