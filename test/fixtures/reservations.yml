@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
-  book_id: 1
+  user: one
+  book: one
   status: 1
-  reserve_start: 2023-02-15
-  reserve_end: 2023-02-15
+  reserve_start: 2023-02-16
+  reserve_end: 2023-02-16
 
 two:
-  user_id: 1
-  book_id: 1
+  user: two
+  book: two
   status: 1
-  reserve_start: 2023-02-15
-  reserve_end: 2023-02-15
+  reserve_start: 2023-02-16
+  reserve_end: 2023-02-16
