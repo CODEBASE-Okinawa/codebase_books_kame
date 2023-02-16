@@ -2,6 +2,7 @@ class BooksController < ApplicationController
     # ユーザーと管理者のコントローラーです。
 
     def index
+      @book = Book.first
     end
     
     def show
