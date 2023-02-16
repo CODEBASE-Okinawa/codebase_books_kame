@@ -1,2 +1,15 @@
 <h2>本一覧 > <%= @book.title %> </h2>
 <h1> <%= @book.title %> </h1>
+<p>貸出可能：貸出可能</P>
+<p>○○○○○○○　から</p>
+<p>○○○○○○○　まで</p>
+
+<%# ルートはresourcesを使っています %>
+<%= link_to '借りる', controller: 'reservations', action: 'show' %>
+<%= link_to '予約する', controller: 'lendings', action: 'show' %>
+
+<p>以下の予定が入っています。</p>
+<p>日程が被らないように貸出・予約をしましょう。</p>
+<p>2023-02-19 ~ 2023-02-22</p>
+<p>2023-02-24 ~ 2023-03-01</p>
+
