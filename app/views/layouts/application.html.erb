@@ -11,21 +11,10 @@
   </head>
 
   <body>
-
- <%
-=begin%>
- ログアウト時に必要  
-<%
-=end%>
-
+    <%# 本の登録をした際にフラッシュを表示させる %>
     <%
 =begin%>
- <%= link_to "Log out", destroy_user_session_path,data: {"turbo-method": :delete}%> 
-<%
-=end%>
-
-    <%# 本の登録をした際にフラッシュを表示させる %>
-    <div class="container">
+ <div class="container">
         <% if flash.notice.present? %>
             <div class="alert alert-success">
                 <%= flash.notice %>
@@ -35,8 +24,33 @@
                 <%= flash.alert %>
             </div>
         <% end %>
-        <%= yield %>
-    </div>
+    </div> 
+<%
+=end%>
 
+    <%= render 'devise/shared/notifications' %>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "ログアウト", destroy_user_session_path,data: {"turbo-method": :delete} %>
+
+    <%= yield %>
+
+    <%
+=begin%>
+ <script>
+      function fadeout(){  
+        document.querySelector(`#item`).animate(
+          [
+            { opacity: 0 },
+            { opacity: 1 }
+          ],
+          {
+            duration: 3000,
+            fill: 'forwards'
+          }
+        );
+          };
+    </script> 
+<%
+=end%>
   </body>
 </html>
