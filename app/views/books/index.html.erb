@@ -12,7 +12,9 @@
 
     <% @books.each do |book| %>
         
-        <%= link_to "/books/book.id" do %> 
+        
+        <%= link_to book_path(book.id) do %>
+        
             <div class="index_list_wrap">
                 <div class="index_image_wrap">
                     <%= image_tag book.image , class: "index_image" %>
@@ -20,12 +22,11 @@
                 <div>
                     <p class="index_list_title">『&nbsp;<%= book.title%>&nbsp;』</p>
                     <p class="index_auther">&nbsp;&nbsp;&nbsp;<%= book.author%>&nbsp;著</p>
-                    
                 </div>
             </div>
-        
+
         <% end %>
+        
     <% end %>
 
 </div>
-

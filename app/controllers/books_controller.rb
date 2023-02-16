@@ -6,8 +6,6 @@ class BooksController < ApplicationController
     # @title = books[0][:title]
     # @image = books[0][:image]
     # @author = books[0][:author]
-
-
   end
 
   def show
