@@ -30,14 +30,3 @@
     display: inline-block;
     text-align: left;
 }
-
-/* フラッシュメッセージ */
-
-.notice {
-    color: white;
-    background-color: blue;
-  }
-  .alert {
-    color: white;
-    background-color: red;
-  }
