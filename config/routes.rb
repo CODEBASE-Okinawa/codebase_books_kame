@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reservations/reserve'
+  get 'reservations/show'
  root to: 'books#index'
   devise_for :users
 
@@ -8,4 +10,6 @@ Rails.application.routes.draw do
   end
 
   resources :books
+  resources :reservations
+  resources :lendings
 end

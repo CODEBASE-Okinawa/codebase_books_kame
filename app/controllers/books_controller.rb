@@ -2,6 +2,7 @@ class BooksController < ApplicationController
     # ユーザーと管理者のコントローラーです。
 
     def index
+      @book = Book.first
     end
     
     def show
@@ -24,8 +25,18 @@ class BooksController < ApplicationController
     end
 
     def edit
+      redirect_to books_url
     end
 
+    # 本を借りるアクション
+    def lend
+      redirect_to books_url
+    end
+
+    # 本を予約するアクション
+    def reserve
+      redirect_to books_url
+    end
 
 
     private
