@@ -12,7 +12,9 @@
 
   <body>
     <%# 本の登録をした際にフラッシュを表示させる %>
-    <div class="container">
+    <%
+=begin%>
+ <div class="container">
         <% if flash.notice.present? %>
             <div class="alert alert-success">
                 <%= flash.notice %>
@@ -22,7 +24,9 @@
                 <%= flash.alert %>
             </div>
         <% end %>
-    </div>
+    </div> 
+<%
+=end%>
 
     <%= render 'devise/shared/notifications' %>
     <%= link_to "ログイン", new_user_session_path %>
