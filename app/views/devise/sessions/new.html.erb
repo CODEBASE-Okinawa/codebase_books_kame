@@ -15,7 +15,9 @@
       <p>
         <div class="field">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password", :size=>"40"%>
+          <%= f.password_field :password, autocomplete: "current-password", :size=>"40"%><br />
+          <input type="checkbox" id="toggle_password" onClick='passwordShowHide();' >
+          <label>パスワードを表示する</label>
         </div>
       </p>
 
@@ -38,3 +40,18 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
+<script type="text/javascript">
+  const password = document.getElementById('user_password');
+  const toggle = document.getElementById('toggle_password');
+
+  function passwordShowHide(){
+    if(password.type === 'password'){
+      password.setAttribute('type','text');
+      toggle.nextElementSibling.textContent = 'パスワードを非表示にする';
+    } else {
+      password.setAttribute('type','password');
+      toggle.nextElementSibling.textContent = 'パスワードを表示する';
+    }
+  }
+</script>
