@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_17_100054) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_17_144139) do
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
     t.string "image"
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_100054) do
     t.bigint "user_id", null: false
     t.bigint "book_id", null: false
     t.integer "status", default: 0, null: false
-    t.date "lend", null: false
+    t.date "lend_date", null: false
     t.date "return_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,9 +34,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_100054) do
   create_table "reservations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "book_id", null: false
-    t.integer "status"
-    t.date "reserve_start"
-    t.date "reserve_end"
+    t.integer "status", default: 0, null: false
+    t.date "reserved_start", null: false
+    t.date "reserved_end", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_reservations_on_book_id"
