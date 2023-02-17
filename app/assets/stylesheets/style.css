@@ -28,7 +28,7 @@ body {
 
 .index_list_title {
     font-size: 21px;
-    margin: 12px 0 15px 0;
+    margin: 12px 0 10px 0;
 }
 
 
@@ -62,5 +62,5 @@ body {
     padding: 6px;
     border: solid 1px palevioletred;
     border-radius: 3px;
-    margin: 19px 0 0 27px;
+    margin: 24px 0 0 27px;
 }
