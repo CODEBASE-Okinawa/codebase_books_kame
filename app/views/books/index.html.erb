@@ -17,7 +17,10 @@
                 </div>
                 <div>
                     <p class="index_list_title">『&nbsp;<%= book.title%>&nbsp;』</p>
-                    <p class="index_auther">&nbsp;&nbsp;&nbsp;<%= book.author%>&nbsp;著</p>
+                    <p class="index_auther"><span class="ml-15"><%= book.author%></span><span class="ml-10">著</span></p>
+                    <div class="index_status_wrap">
+                        <p>貸出中</p><p>予約済み</p><p>貸出受付中</p><p>貸出受付中</p><p>ご返却願います</p>
+                    </div>
                 </div>
             </div>
 

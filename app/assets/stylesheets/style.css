@@ -4,6 +4,14 @@ body {
 
 /* index.html.erb */
 
+.ml-10 {
+    margin-left: 10px;
+}
+
+.ml-15 {
+    margin-left: 15px;
+}
+
 .wrapper {
     width: 960px;
     margin: auto;
@@ -41,4 +49,18 @@ body {
 
 .index_auther {
     margin-left: 12px;
+}
+
+.index_status_wrap {
+    display: flex;
+}
+
+.index_status_wrap p {
+    display: inline-block;
+    font-size: 15px;
+    color: palevioletred;
+    padding: 6px;
+    border: solid 1px palevioletred;
+    border-radius: 3px;
+    margin: 19px 0 0 27px;
 }
