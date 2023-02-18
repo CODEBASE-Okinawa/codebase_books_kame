@@ -1,0 +1,10 @@
+<h3>予約した本一覧</h3>
+
+<% if !@books.nil? %>
+    <% @books.each do |book| %>
+        <p>
+            <%= book.title %>
+            <%= book.author %>
+        </p>
+    <% end %>
+<% end %>
