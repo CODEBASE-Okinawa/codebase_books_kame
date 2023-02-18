@@ -44,7 +44,7 @@ class BooksController < ApplicationController
     # strong_parameters,,,登録画面でハッシュの内容をそのまま送らないようにしている。
     def book_params
         # stockカラムを追加したら修正する
-        params.require(:book).permit(:title, :author)
+        params.require(:book).permit(:title, :author, :image)
     end
     
 end
