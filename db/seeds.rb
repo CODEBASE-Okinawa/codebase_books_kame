@@ -12,6 +12,9 @@ User.create!(name: "CodebaseAdmin",
              password: "codebase",
              status: 0)
 
+Rending.create!(user_id: ,
+
+)
 # Book.create!(title: "ゼロからわかる-Ruby-超入門-かんたんIT基礎講座",
 #              image: "book_01.jpg",
 #              author: "五十嵐 邦明")
