@@ -1,5 +1,9 @@
 class LendingsController < ApplicationController
 
+    def index
+        
+    end
+
     def show
 
     end
