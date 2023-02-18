@@ -19,7 +19,8 @@ end
 
 
 5.times do |n|
-    Book.create!(title: "Ruby#{n+1}",
+    Book.create!(image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/image_01.png"), filename:"image_01.png"),
+                title: "Ruby#{n+1}",
                 author: "伊藤#{n+1}")
 end
 
