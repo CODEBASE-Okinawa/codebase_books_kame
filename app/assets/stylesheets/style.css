@@ -22,12 +22,27 @@ body {
 }
 
 .index_list_wrap {
+
     display: flex;
     margin-bottom: 30px;
     padding: 15px 0;
     background-color: #ffffff;
     border: solid 1px #dfdfdf;
     border-radius: 15px;
+}
+
+.index_list_wrap:hover {
+    opacity: 60%;
+}
+
+.index_list_wrap p {
+    margin-top: 0;
+
+}
+
+.index_wrap {
+    text-decoration: none;
+    color: black;
 }
 
 .index_list_title {
@@ -66,5 +81,5 @@ body {
     padding: 6px;
     border: solid 1px palevioletred;
     border-radius: 3px;
-    margin: 24px 0 0 27px;
+    margin: 20px 0 0 27px;
 }
