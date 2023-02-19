@@ -4,6 +4,8 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @lendings = Lending.all
+    @reservations = Reservation.all
+    @users = User.all
   end
 
   def show
