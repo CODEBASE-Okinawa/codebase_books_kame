@@ -1,6 +1,8 @@
 class LendingsController < ApplicationController
 
     def index
+        # ログインしたユーザーの借りている本を表示させる
+        @books = current_user.books
         
     end
 
