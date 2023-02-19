@@ -31,9 +31,9 @@ end
                       reserved_end: Date.today + 7)
 end
 
-10.times do |_n|
+10.times do |n|
     Lending.create!(user_id: rand(1..4),
-                        book_id: rand(1..4),
+                        book_id: n+1,
                         status: rand(2),
                         lend_date: Date.today,
                         return_date: Date.today + 7)

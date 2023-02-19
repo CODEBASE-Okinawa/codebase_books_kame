@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
   def index
-    @reserved_books = current_user.books.where(reservations:{status:0})
+    @reservation_books = current_user.books.where(reservations:{status:0})
   end
 
   def reserve
