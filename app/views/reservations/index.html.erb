@@ -1,15 +1,15 @@
 <h3>予約した本一覧</h3>
 
-<% if !@reserved_books.nil? %>
-    <% @reserved_books.each do |reserved_book| %>
-        <%= link_to book_path(reserved_book.id) do %>
+<% if !@reservation_books.nil? %>
+    <% @reservation_books.each do |reservation_book| %>
+        <%= link_to book_path(reservation_book.book_id) do %>
             <div class="index_list_wrap">
                 <div class="index_image_wrap">
-                    <%= image_tag reserved_book.image , class: "index_image" %>
+                    <%= image_tag reservation_book.book.image , class: "index_image" %>
                 </div>
                 <div>
-                    <p class="index_list_title">『&nbsp;<%= reserved_book.title%>&nbsp;』</p>
-                    <p class="index_auther"><span class="ml-15"><%= reserved_book.author%></span><span class="ml-10">著</span></p>
+                    <p class="index_list_title">『&nbsp;<%= reservation_book.book.title%>&nbsp;』</p>
+                    <p class="index_auther"><span class="ml-15"><%= reservation_book.book.author%></span><span class="ml-10">著</span></p>
                 </div>
                 <div>
                 </div>
