@@ -1,6 +1,6 @@
 <h3>予約した本一覧</h3>
 
-<% if !@reserved_books.nil? %>
+<% if !@reservation_books.nil? %>
     <% @reservation_books.each do |reservation_book| %>
         <%= link_to book_path(reservation_book.book_id) do %>
             <div class="index_list_wrap">
