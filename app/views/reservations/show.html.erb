@@ -1,2 +1,8 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<p>
+    <%= image_tag @reservation_book.book.image %>
+    <%= @reservation_book.book.title %>
+    <%= @reservation_book.book.author %>
+    <%= button_to "予約を取り消す", {controller: "reservations", action: "edit"}, {method: :get} %>
+    <%= @reservation_book.reserved_start %>
+    <%= @reservation_book.reserved_end %>
+</p>
