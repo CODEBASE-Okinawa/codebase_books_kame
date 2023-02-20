@@ -7,6 +7,9 @@
 <div class="wrapper">
 
     <% @books.each do |book| %>
+    <% @lendings.each do |lending| %>
+    <% @reservations.each do |reservation|%>
+    <% @users.each do |user| %>
         
         
         <%= link_to book_path(book.id) , class: "index_wrap" do %>
@@ -17,15 +20,28 @@
                 </div>
                 <div>
                     <p class="index_list_title">『&nbsp;<%= book.title%>&nbsp;』</p>
-                    <p class="index_auther"><span class="ml-15"><%= book.author%></span><span class="ml-10">著</span></p>
+                    <p class="index_auther"><span class="ml-15"><%= book.author %></span><span class="ml-10">著</span></p>
                     <div class="index_status_wrap">
-                        <p>貸出中</p><p>予約済み</p><p>貸出受付中</p><p>貸出受付中 <span class="caption">※先に返却期限の超えた書籍を返却願います</span></p><p>ご返却願います</p>
+                        <%# <p>貸出中</p><p>予約済み</p><p>貸出受付中</p><p>貸出受付中 <span class="caption">※先に返却期限の超えた書籍を返却願います</span></p><p>ご返却願います</p> %>
+                        <%
+=begin%>
+ <% if 1 == lending.status %>
+                            <p>貸出中</p>
+                        <% end %>
+                        <% if current_user.id == user.id && 1 == reservation.status %>
+                            <p>貸出受付中</p>
+                        <% end %> 
+<%
+=end%>
                     </div>
                 </div>
             </div>
 
         <% end %>
-        
+
+    <% end %> 
+    <% end %>    
+    <% end %>
     <% end %>
 
 </div>
