@@ -7,7 +7,7 @@ class LendingsController < ApplicationController
     end
 
     def show
-        @reservation_book = current_user.reservations.where(book_id:params[:id], status:0).first
+        @lending_books = current_user.lendings.where(book_id:params[:id], status:0).first
     end
 
     def new
