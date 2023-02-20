@@ -3,10 +3,13 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    
-    if !current_user.nil?
-      @lending_books = current_user.lendings.where(status: 0)
-    end
+
+    @lending_books = current_user.lendings.where(status: 0) unless current_user.nil?
+
+    @reservation_books = current_user.reservations.where(status: 1) unless current_user.nil?
+
+    return if current_user.nil?
+
     # @lendings = Lending.all
     # @reservations = Reservation.all
     # @users = User.all

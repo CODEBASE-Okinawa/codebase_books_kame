@@ -24,12 +24,17 @@
                             <p>貸出中</p>
                         <% elsif current_user.nil? || @lending_books.find_by(book_id: book).nil? %>
                             <p>貸出受付中</p>
-
                         <% end %>
+
+                        <% if !current_user.nil? && !@reservation_books.find_by(book_id: book).nil? %>
+                            <p>予約済</p>
+                        <% end %>
+
                     </div>
                 </div>
             </div>
         <% end %>
+
     <% end %>
 </div>
 
