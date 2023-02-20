@@ -3,9 +3,13 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @lendings = Lending.all
-    @reservations = Reservation.all
-    @users = User.all
+    
+    if !current_user.nil?
+      @lending_books = current_user.lendings.where(status: 0)
+    end
+    # @lendings = Lending.all
+    # @reservations = Reservation.all
+    # @users = User.all
   end
 
   def show
