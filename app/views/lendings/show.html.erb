@@ -1,2 +1,8 @@
-<h1>Lendings#show</h1>
-<p>Find me in app/views/lendings/show.html.erb</p>
+<p>
+    <%= image_tag @lending_books.book.image %>
+    <%= @lending_books.book.title %>
+    <%= @lending_books.book.author %>
+    <%= button_to "本を返却する", {controller: "lendings", action: "edit"}, {method: :get} %>
+    <%= @lending_books.lend_date %>
+    <%= @lending_books.return_date %>
+</p>
