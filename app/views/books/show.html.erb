@@ -3,13 +3,17 @@
 <% if @book.image.attached? %>
     <%= image_tag @book.image.variant(:display) %>
 <% end %>
-<p>貸出可能：貸出可能</P>
-<p>○○○○○○○　から</p>
-<p>○○○○○○○　まで</p>
 
-<%# ルートはresourcesを使っています %>
-<%= link_to '本を借りる', lending_path %>
-<%= link_to '予約する', controller: 'lendings', action: 'show' %>
+<p>貸出可能 or 貸出中</P>
+
+<%# <%= form_with url: reservations_path, local: true do |f| %> %>
+<%= form_with model: @reservation, action: "", local: true do |f| %>
+<%= f.date_field :reserved_start, class: 'form-control' %>から
+<%= f.date_field :reserved_end, class: 'form-control' %>まで
+
+<%= f.submit "借りる",{formaction: lendings_path, class: "btn btn-primary"} %>
+<%= f.submit "予約する", class: "btn btn-primary" %>
+<% end %>
 
 <p>以下の予定が入っています。</p>
 <p>日程が被らないように貸出・予約をしましょう。</p>

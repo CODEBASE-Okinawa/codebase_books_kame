@@ -13,11 +13,13 @@ class LendingsController < ApplicationController
     end
 
     def create
-        lending = Lending.new(lending_params)
-        if lending.save
+        @lending_book = Lending.new(reservation_params)
+
+        binding.irb
+        if @lending_book.save
             redirect_to books_url, notice: "貸出完了"
         else
-            render :new
+            render :show
         end
     end
 
@@ -28,6 +30,7 @@ class LendingsController < ApplicationController
 
     private
     def lending_params
-        params.require(:lending).permit(:user_id, :book_id, :lend_date, :return_date)
+        params.require(:reservation).permit(:user_id, :book_id, :reserved_start, :reserved_end)
     end
+
 end
