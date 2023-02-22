@@ -66,6 +66,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem "solargraph"
+  # 開発環境で電子メール配信を設定する必要がなくする
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do
