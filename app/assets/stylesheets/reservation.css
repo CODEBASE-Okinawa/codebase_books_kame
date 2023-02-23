@@ -1,22 +1,24 @@
 .res_show {
     display: flex;
+    text-align: center;
 }
 
 .book_image {
     margin: 30px;
-    height: 80%;
+    height: 60%;
 }
 
 .book_title {
-    font-size: 100px;
+    font-size: 80px;
     margin: 30px 50px;
+    text-align: left;
 }
 
 .book_author {
     font-size: 50px;
     margin-left: 50px;
     margin-bottom: 20px;
-
+    text-align: left;
 }
 
 .status_size {
@@ -37,15 +39,21 @@
     border-radius: 10px;
     margin-top: 100px;
     margin-left: 50px;
-    font-size: ;
+    font-size: 15px;
 }
 
-.res_period {
+.show_res_period {
     font-size: 20px;
     margin-left: 50px;
+    text-align: left;
 }
 
-.res_period_text {
+.show_res_period_text {
     margin: 10px 50px;
     margin-top: 30px;
+    text-align: left;
+}
+
+.index_res_period {
+    margin-left: 27px;
 }

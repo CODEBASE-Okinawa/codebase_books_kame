@@ -15,10 +15,10 @@
         <div>
             <%= button_to "予約を取り消す", {controller: "reservations", action: "edit"}, {method: :get, class: "res_can_button"} %>
         </div>
-        <div class="res_period_text">
+        <div class="show_res_period_text">
             以下の日程で予約しています
         </div>
-        <p class="res_period">
+        <p class="show_res_period">
             <%= @reservation_book.reserved_start %> -
             <%= @reservation_book.reserved_end %>
         </p>
