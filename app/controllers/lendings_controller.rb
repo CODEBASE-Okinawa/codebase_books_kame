@@ -1,32 +1,22 @@
 class LendingsController < ApplicationController
 
     def index
-        # ログインしたユーザーの借りている本を表示させる
-         @lending_books = current_user.lendings.where(status: 0)
-         
+         @lending_books = current_user.lendings.where(status: 0)  
     end
 
     def show
         @lending_books = current_user.lendings.where(book_id:params[:id], status:0).first
     end
 
-    def new
-       
-    end
-
     def create
-        user_id = current_user.id
-        book_id = params[:id]
-        status = 1234
-        # return_date = Data.today+7
-
-        lending = Lending.new(lending_params)
-        if lending.save
+    
+        @lending_book = Lending.new(lending_params(params))
+       
+        if @lending_book.save
             redirect_to books_url, notice: "貸出完了"
         else
-            render :new
+            render :show
         end
-        binding.irb
     end
 
     def edit
@@ -35,7 +25,8 @@ class LendingsController < ApplicationController
     end
 
     private
-    def lending_params
-        params.require(:lending).permit(:user_id, :book_id,  :lend_date)
+    def lending_params(data)
+        @lending_books = {user_id: data[:user_id], book_id: data[:book_id], lend_date: data[:reserved_start], return_date: data[:reserved_end]}
     end
+
 end
