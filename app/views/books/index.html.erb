@@ -1,24 +1,39 @@
-<h3>本の一覧ページです。</h3>
+
 
 <div class="wrapper">
+
+
+<%# 管理者ページの本登録画面のリンク　※一時的にbootstrap用のクラス名を入れています。 %>
+<%# <%= link_to '本の登録', new_book_path, class: 'btn btn-primary' %>
+<h3 class="page_title">本一覧</h3>
+
     <% @books.each do |book| %>
+
         <%= link_to book_path(book.id) , class: "index_wrap" do %>
             <div class="index_list_wrap">
                 <div class="index_image_wrap">
                     <%= image_tag book.image , class: "index_image" %>
                 </div>
+                
                 <div>
                     <p class="index_list_title">『&nbsp;<%= book.title%>&nbsp;』</p>
                     <p class="index_auther"><span class="ml-15"><%= book.author %></span><span class="ml-10">著</span></p>
                     <div class="index_status_wrap">
-                        <% if !current_user.nil? && !@lending_books.find_by(book_id: book).nil? %>
+
+                        <% if !@lending_books.find_by(book_id: book).nil? %>
                             <p>貸出中</p>
                         <% elsif current_user.nil? || @lending_books.find_by(book_id: book).nil? %>
                             <p>貸出受付中</p>
                         <% end %>
+
+                        <% if !current_user.nil? && !@reservation_books.find_by(book_id: book).nil? %>
+                            <p>予約中</p>
+                        <% end %>
+
                     </div>
                 </div>
             </div>
         <% end %>
+
     <% end %>
 </div>

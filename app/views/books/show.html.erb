@@ -1,4 +1,3 @@
-<h2>本一覧 > <%= @book.title %> </h2>
 <h1> <%= @book.title %> </h1>
 <% if @book.image.attached? %>
     <%= image_tag @book.image.variant(:display) %>
