@@ -1,8 +1,4 @@
-<h1>トップページ</h1>
-<p>本の一覧ページです。</p>
-
-<%# 管理者ページの本登録画面のリンク　※一時的にbootstrap用のクラス名を入れています。 %>
-<%= link_to '本の登録', new_book_path, class: 'btn btn-primary' %>
+<h3>本の一覧ページです。</h3>
 
 <div class="wrapper">
     <% @books.each do |book| %>
@@ -15,7 +11,6 @@
                     <p class="index_list_title">『&nbsp;<%= book.title%>&nbsp;』</p>
                     <p class="index_auther"><span class="ml-15"><%= book.author %></span><span class="ml-10">著</span></p>
                     <div class="index_status_wrap">
-                        <%# <p>貸出中</p><p>予約済み</p><p>貸出受付中</p><p>貸出受付中 <span class="caption">※先に返却期限の超えた書籍を返却願います</span></p><p>ご返却願います</p> %>
                         <% if !current_user.nil? && !@lending_books.find_by(book_id: book).nil? %>
                             <p>貸出中</p>
                         <% elsif current_user.nil? || @lending_books.find_by(book_id: book).nil? %>
@@ -27,5 +22,3 @@
         <% end %>
     <% end %>
 </div>
-
-<%#= link_to '本の登録', new_book_path, class: 'btn btn-primary' %>

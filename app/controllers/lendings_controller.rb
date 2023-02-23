@@ -13,8 +13,8 @@ class LendingsController < ApplicationController
     end
 
     def create
-        @lending_book = Lending.new(reservation_params)
-
+        
+        @lending_book = current_user.lendings.new(lending_params)
         binding.irb
         if @lending_book.save
             redirect_to books_url, notice: "貸出完了"

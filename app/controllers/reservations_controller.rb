@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
   def index
-    @reservation_books = current_user.reservations.where(status: 0)
+      @reservation_books = current_user.reservations.where(status: 0)
   end
 
   def show
@@ -14,8 +14,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation_book = Reservation.new(reservation_params)
-    binding.irb
+    @reservation_book = current_user.reservations.new(reservation_params)
     if @reservation_book.save
         redirect_to books_url, notice: "予約完了"
     else

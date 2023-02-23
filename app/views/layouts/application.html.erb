@@ -11,22 +11,6 @@
   </head>
 
   <body>
-    <%# 本の登録をした際にフラッシュを表示させる %>
-    <%
-=begin%>
- <div class="container">
-        <% if flash.notice.present? %>
-            < class="alert alert-success">
-                <%= flash.notice %>
-            </div>
-        <% else %>
-            < class="alert alert-success">
-                <%= flash.alert %>
-            </div>
-        <% end %>
-    </div> 
-<%
-=end%>
 
     <%= render "devise/shared/notifications" %>
     <%= link_to "本一覧", books_path, class: "nav-link" %>
