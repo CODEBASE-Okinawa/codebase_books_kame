@@ -8,19 +8,17 @@ class ReservationsController < ApplicationController
     @reservation_book = current_user.reservations.where(book_id:params[:id], status:0).first
   end
 
-  def new
-    @reservation_book = Reservation.new
-    
-  end
-
   def create
-    @reservation_book = current_user.reservations.new(reservation_params)
+
+    @reservation_book = Reservation.new(reservation_params)
+    # binding.irb
+    
     if @reservation_book.save
         redirect_to books_url, notice: "予約完了"
     else
         render :new
     end
-    
+    # binding.irb
   end
 
   def edit
@@ -30,6 +28,6 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-      params.require(:reservation).permit(:user_id, :book_id, :reserved_start, :reserved_end)
+      params.permit(:user_id, :book_id, :reserved_start, :reserved_end)
   end
 end

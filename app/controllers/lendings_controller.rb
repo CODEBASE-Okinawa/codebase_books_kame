@@ -8,14 +8,10 @@ class LendingsController < ApplicationController
         @lending_books = current_user.lendings.where(book_id:params[:id], status:0).first
     end
 
-    def new
-        @lending_book = Lending.new
-    end
-
     def create
-        
-        @lending_book = current_user.lendings.new(lending_params)
-        binding.irb
+    
+        @lending_book = Lending.new(lending_params(params))
+       
         if @lending_book.save
             redirect_to books_url, notice: "貸出完了"
         else
@@ -29,8 +25,8 @@ class LendingsController < ApplicationController
     end
 
     private
-    def lending_params
-        params.require(:reservation).permit(:user_id, :book_id, :reserved_start, :reserved_end)
+    def lending_params(data)
+        @lending_books = {user_id: data[:user_id], book_id: data[:book_id], lend_date: data[:reserved_start], return_date: data[:reserved_end]}
     end
 
 end
