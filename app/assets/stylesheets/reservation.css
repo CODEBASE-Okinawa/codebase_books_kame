@@ -1,0 +1,51 @@
+.res_show {
+    display: flex;
+}
+
+.book_image {
+    margin: 30px;
+    height: 80%;
+}
+
+.book_title {
+    font-size: 100px;
+    margin: 30px 50px;
+}
+
+.book_author {
+    font-size: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+
+}
+
+.status_size {
+    display: inline-block;
+    font-size: 15px;
+    color: palevioletred;
+    padding: 10px;
+    border: solid 1px palevioletred;
+    border-radius: 3px;
+    margin: 20px 30px;
+    margin-left: 50px;
+    width: 110px;
+}
+
+.res_can_button {
+    width: 500px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-left: 50px;
+    font-size: ;
+}
+
+.res_period {
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+.res_period_text {
+    margin: 10px 50px;
+    margin-top: 30px;
+}

@@ -1,8 +1,26 @@
-<p>
-    <%= image_tag @reservation_book.book.image %>
-    <%= @reservation_book.book.title %>
-    <%= @reservation_book.book.author %>
-    <%= button_to "予約を取り消す", {controller: "reservations", action: "edit"}, {method: :get} %>
-    <%= @reservation_book.reserved_start %>
-    <%= @reservation_book.reserved_end %>
-</p>
+<div class="res_show">
+    <div>
+        <%= image_tag @reservation_book.book.image, {class: "book_image"} %>
+    </div>
+    <div>
+        <div class="book_title">
+            <%= @reservation_book.book.title %>
+        </div>
+        <div class="book_author">
+            <%= @reservation_book.book.author %> 著
+        </div>
+        <div class="index_status_wrap status_size">
+            予約しています
+        </div>
+        <div>
+            <%= button_to "予約を取り消す", {controller: "reservations", action: "edit"}, {method: :get, class: "res_can_button"} %>
+        </div>
+        <div class="res_period_text">
+            以下の日程で予約しています
+        </div>
+        <p class="res_period">
+            <%= @reservation_book.reserved_start %> -
+            <%= @reservation_book.reserved_end %>
+        </p>
+    </div>
+</div>
