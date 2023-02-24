@@ -6,8 +6,8 @@
 <p>貸出可能 or 貸出中</P>
 
 <%= form_with url: reservations_path, local: true do |f| %>
-    <%= f.date_field :reserved_start, class: 'form-control' %>から
-    <%= f.date_field :reserved_end, class: 'form-control' %>まで
+    <%= f.date_field :reserved_start,value: Date.today.strftime('%Y-%m-%d'),min: Date.today.strftime('%Y-%m-%d'), class: 'form-control' %>から
+    <%= f.date_field :reserved_end,value: Date.today.next_day(7).strftime('%Y-%m-%d'),min: Date.today.strftime('%Y-%m-%d'),class: 'form-control' %>まで
 
     <%# idをhiddenで送る %>
     <%= f.hidden_field :book_id, :value => params[:id] %>
