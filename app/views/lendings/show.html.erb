@@ -13,14 +13,19 @@
             貸出しています
         </div>
         <div>
-            <%= button_to "本を返却する", {controller: "lendings", action: "edit"}, {method: :get} %>
+            <%= button_to "本を返却する", {controller: "lendings", action: "edit"}, {method: :get, class: "res_can_button"} %>
         </div>
-        <div class="show_res_period_text">
-            以下の日程で貸出しています
-        </div>
-        <p class="show_res_period">
-            <%= @lending_book.lend_date %> -
-            <%= @lending_book.return_date %>
-        </p>
+
+        <% if @lending_book.return_date > Date.yesterday %>
+            <div class="show_res_period_text">
+                以下の日程で貸出しています
+            </div>
+            <p class="show_res_period">
+                <%= @lending_book.lend_date %> から
+                <%= @lending_book.return_date %> まで
+            </p>
+        <% else %>
+            <p class="return_alert">返却日が過ぎています！<br>早めに返却をお願いします！</p>
+        <% end %>
     </div>
 </div>
