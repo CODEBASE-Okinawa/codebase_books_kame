@@ -3,12 +3,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-
-    # @lending_books = current_user.lendings.where(status: 0) unless current_user.nil?
-    # @reservation_books = current_user.reservations.where(status: 0) unless current_user.nil?
-
-    # return if current_user.nil?
-
     @lending_books = Lending.where(status: 0)
     @reservation_books = current_user.reservations.where(status: 0) unless current_user.nil?
     @reserved_books = Reservation.where("reserved_end <= ?", Date.yesterday)
@@ -16,8 +10,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @lendings_status = Lending.all.where(status:0, book_id:params[:id])
-    @reservation_status = Reservation.all.where(status:0, book_id:params[:id])
+    @lendings_status = Lending.all.where(status:0, book_id:params[:id]).first
+    @reservation_status = Reservation.all.where('status = ? and reserved_start >= ? and book_id = ?', 0, Date.today, params[:id])
     @book = Book.find(params[:id])
     @lending_book = Lending.where(user_id: current_user.id, book_id: @book,status: 0).first unless current_user.nil?
     @reservation_book = Reservation.where(user_id: current_user.id, book_id: @book, status: 0).first unless current_user.nil?
@@ -26,6 +20,7 @@ class BooksController < ApplicationController
         elsif !current_user.nil? && !@reservation_book.nil?
           redirect_to reservation_path
         end
+    binding.irb
   end
 
   def new

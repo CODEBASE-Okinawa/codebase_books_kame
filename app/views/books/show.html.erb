@@ -3,10 +3,10 @@
     <%= image_tag @book.image.variant(:display) %>
 <% end %>
 
-<% unless @lendings_status %>
-    <p>貸出可能</p>
-<% else %>
+<% if @lendings_status %>
     <p>貸出中</p>
+<% else %>
+    <p>貸出可能</p>
 <% end %>
 
 <%= form_with url: reservations_path, local: true do |f| %>
