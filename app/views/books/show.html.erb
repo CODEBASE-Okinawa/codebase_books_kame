@@ -17,7 +17,11 @@
     <%= f.hidden_field :book_id, :value => params[:id] %>
     <%= f.hidden_field :user_id, :value => current_user.id unless current_user.nil? %>
 
-    <%= f.submit "借りる",{formaction: lendings_path, class: "btn btn-primary"} %>
+    <% if @lendings_status.nil? %>
+        <%= f.submit "借りる",{formaction: lendings_path, class: "btn btn-primary"} %>
+    <% else %>
+        <%= f.submit "借りる",{formaction: lendings_path, class: "btn btn-primary", disabled: true}%>
+    <% end %>
     <%= f.submit "予約する", class: "btn btn-primary" %>
 <% end %>
 
