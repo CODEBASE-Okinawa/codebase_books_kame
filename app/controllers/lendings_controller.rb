@@ -23,7 +23,7 @@ class LendingsController < ApplicationController
 
     def edit
         current_user.lendings.where(book_id: params[:id], status: 0).first.update(status:1)
-        redirect_to lendings_path, notice:"本を返却しました"
+        redirect_to book_path, notice:"本を返却しました"
     end
 
     private
