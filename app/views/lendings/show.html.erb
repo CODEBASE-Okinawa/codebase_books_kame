@@ -1,8 +1,25 @@
-<p>
-    <%= image_tag @lending_book.book.image %>
-    <%= @lending_book.book.title %>
-    <%= @lending_book.book.author %>
-    <%= button_to "本を返却する", {controller: "lendings", action: "edit"}, {method: :get} %>
-    <%= @lending_book.lend_date %>
-    <%= @lending_book.return_date %>
-</p>
+<div class="res_show">
+    <div>
+        <%= image_tag @lending_book.book.image, {class: "book_image"} %>
+    </div>
+        <div class="book_title">
+            <%= @lending_book.book.title %>
+        </div>
+        <div class="book_author">
+            <%= @lending_book.book.author %> 著
+        </div>
+        <div class="index_status_wrap status_size">
+            貸出しています
+        </div>
+        <div>
+            <%= button_to "本を返却する", {controller: "lendings", action: "edit"}, {method: :get} %>
+        </div>
+        <div class="show_res_period_text">
+            以下の日程で貸出しています
+        </div>
+        <p class="show_res_period">
+            <%= @lending_book.lend_date %> -
+            <%= @lending_book.return_date %>
+        </p>
+    </div>
+</div>
