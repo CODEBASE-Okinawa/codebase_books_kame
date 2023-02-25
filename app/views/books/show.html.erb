@@ -21,11 +21,12 @@
     <%= f.submit "予約する", class: "btn btn-primary" %>
 <% end %>
 
-<% if @reservation_status %>
+<% unless @reservation_status.empty? %>
     <p>以下の予定が入っています。</p>
     <p>日程が被らないように貸出・予約をしましょう。</p>
+
     <% @reservation_status.each do |day|%>
-        <p> <%= day["created_at"] %> ~ <%= day["updated_at"] %> </p>
+     <p> <%= day["reserved_start"] %> ~ <%= day["reserved_end"] %> </p>
     <% end %>
 <% end %>
 

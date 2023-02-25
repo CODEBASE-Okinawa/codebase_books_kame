@@ -20,7 +20,6 @@ class BooksController < ApplicationController
         elsif !current_user.nil? && !@reservation_book.nil?
           redirect_to reservation_path
         end
-    binding.irb
   end
 
   def new
