@@ -16,8 +16,16 @@ class BooksController < ApplicationController
   end
 
   def show
+    @lendings_status = Lending.all.where(status:0, book_id:params[:id])
+    @reservation_status = Reservation.all.where(status:0, book_id:params[:id])
     @book = Book.find(params[:id])
-    # @reservation = Reservation.new
+    @lending_book = Lending.where(user_id: current_user.id, book_id: @book,status: 0).first
+    @reservation_book = Reservation.where(user_id: current_user.id, book_id: @book, status: 0).first
+        if !current_user.nil? && !@lending_book.nil?
+          redirect_to lending_path
+        elsif !current_user.nil? && !@reservation_book.nil?
+          redirect_to reservation_path
+        end
   end
 
   def new

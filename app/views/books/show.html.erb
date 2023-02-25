@@ -3,11 +3,15 @@
     <%= image_tag @book.image.variant(:display) %>
 <% end %>
 
-<p>貸出可能 or 貸出中</P>
+<% unless @lendings_status %>
+    <p>貸出可能</p>
+<% else %>
+    <p>貸出中</p>
+<% end %>
 
 <%= form_with url: reservations_path, local: true do |f| %>
-    <%= f.date_field :reserved_start, class: 'form-control' %>から
-    <%= f.date_field :reserved_end, class: 'form-control' %>まで
+    <%= f.date_field :reserved_start,value: Date.today.strftime('%Y-%m-%d'),min: Date.today.strftime('%Y-%m-%d'), class: 'form-control' %>から
+    <%= f.date_field :reserved_end,value: Date.today.next_day(7).strftime('%Y-%m-%d'),min: Date.today.strftime('%Y-%m-%d'),class: 'form-control' %>まで
 
     <%# idをhiddenで送る %>
     <%= f.hidden_field :book_id, :value => params[:id] %>
@@ -17,8 +21,12 @@
     <%= f.submit "予約する", class: "btn btn-primary" %>
 <% end %>
 
-<p>以下の予定が入っています。</p>
-<p>日程が被らないように貸出・予約をしましょう。</p>
-<p>2023-02-19 ~ 2023-02-22</p>
-<p>2023-02-24 ~ 2023-03-01</p>
+<% if @reservation_status %>
+    <p>以下の予定が入っています。</p>
+    <p>日程が被らないように貸出・予約をしましょう。</p>
+    <% @reservation_status.each do |day|%>
+        <p> <%= day["created_at"] %> ~ <%= day["updated_at"] %> </p>
+    <% end %>
+<% end %>
+
 
