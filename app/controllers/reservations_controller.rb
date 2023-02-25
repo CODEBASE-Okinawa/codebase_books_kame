@@ -9,16 +9,17 @@ class ReservationsController < ApplicationController
   end
 
   def create
-
-    @reservation_book = Reservation.new(reservation_params)
-    # binding.irb
-    
-    if @reservation_book.save
-        redirect_to reservations_path, notice: "予約完了"
+    if !current_user.nil?
+      @reservation_book = Reservation.new(reservation_params)
+      
+      if @reservation_book.save
+          redirect_to reservations_path, notice: "予約完了"
+      else
+          render :new
+      end
     else
-        render :new
+      redirect_to new_user_session_path
     end
-    # binding.irb
   end
 
   def edit

@@ -9,13 +9,15 @@ class LendingsController < ApplicationController
     end
 
     def create
-    
-        @lending_book = Lending.new(lending_params(params))
-       
-        if @lending_book.save
-            redirect_to lendings_url, notice: "貸出完了"
+        if !current_user.nil?
+            @lending_book = Lending.new(lending_params(params))
+            if @lending_book.save
+                redirect_to lendings_url, notice: "貸出完了"
+            else
+                render :show
+            end
         else
-            render :show
+            redirect_to new_user_session_path
         end
     end
 
