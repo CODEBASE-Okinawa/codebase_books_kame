@@ -10,6 +10,6 @@ class Lending < ApplicationRecord
     end
 
     def remind_day
-      self.return_date - 1.day
+      self.return_date - 2.day - 15.hour
     end
 end
