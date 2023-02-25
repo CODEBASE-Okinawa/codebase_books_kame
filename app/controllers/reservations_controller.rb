@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     # binding.irb
     
     if @reservation_book.save
-        redirect_to books_url, notice: "予約完了"
+        redirect_to reservations_path, notice: "予約完了"
     else
         render :new
     end

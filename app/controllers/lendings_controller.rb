@@ -5,7 +5,7 @@ class LendingsController < ApplicationController
     end
 
     def show
-        @lending_books = current_user.lendings.where(book_id:params[:id], status:0).first
+        @lending_book = current_user.lendings.where(book_id:params[:id], status:0).first
     end
 
     def create
@@ -13,7 +13,7 @@ class LendingsController < ApplicationController
         @lending_book = Lending.new(lending_params(params))
        
         if @lending_book.save
-            redirect_to books_url, notice: "貸出完了"
+            redirect_to lendings_url, notice: "貸出完了"
         else
             render :show
         end
