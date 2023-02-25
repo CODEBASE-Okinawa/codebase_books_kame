@@ -7,4 +7,15 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.send_to_signup(user)
   end
 
+  def remind_return_date
+    lending = Lending.first
+    user = lending.user
+    UserMailer.with(
+      to: user.email,
+      return_date: lending.return_date,
+      title: lending.book.title,
+      image: lending.book.image.variant(:display).blob.filename
+    ).remind_return_date
+  end
+
 end
