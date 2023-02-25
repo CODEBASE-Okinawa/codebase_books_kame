@@ -9,15 +9,15 @@
 }
 
 .book_title {
-    font-size: 80px;
-    margin: 30px 50px;
+    font-size: 60px;
+    margin: 30px 50px 15px 50px;
     text-align: left;
 }
 
 .book_author {
-    font-size: 50px;
+    font-size: 30px;
     margin-left: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     text-align: left;
 }
 
@@ -39,7 +39,8 @@
     border-radius: 10px;
     margin-top: 100px;
     margin-left: 50px;
-    font-size: 15px;
+    font-size: 20px;
+    letter-spacing: 3px;
 }
 
 .show_res_period {
@@ -56,4 +57,13 @@
 
 .index_res_period {
     margin-left: 27px;
+}
+
+.return_alert {
+    margin-left: 50px;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: palevioletred;
 }
