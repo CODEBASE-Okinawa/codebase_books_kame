@@ -15,7 +15,7 @@
 
     <%# idをhiddenで送る %>
     <%= f.hidden_field :book_id, :value => params[:id] %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id unless current_user.nil? %>
 
     <%= f.submit "借りる",{formaction: lendings_path, class: "btn btn-primary"} %>
     <%= f.submit "予約する", class: "btn btn-primary" %>
