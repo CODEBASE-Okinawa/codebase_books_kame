@@ -19,6 +19,7 @@
         <%= link_to "本一覧", books_path, class: "nav-link" %>
         <% if !current_user.nil? && current_user.status == 0 %>
           <%= link_to "本の登録", new_book_path, class: "btn btn-primary" %>
+          <%= link_to "ユーザー一覧", users_index_path, class: "btn btn-primary" %>
           <%= current_user.name %>
           <%= link_to "ログアウト", destroy_user_session_path,data: {"turbo-method": :delete} %>
         <% elsif user_signed_in? %>

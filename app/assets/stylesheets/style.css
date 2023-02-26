@@ -149,3 +149,15 @@ body {
 .reserved_button{
     margin:10px 0 0 5px;
 }
+
+.user_list {
+    margin: auto;
+}
+
+.user_content {
+    margin: 0 50px
+}
+
+.mw {
+    margin: 0 80px;
+}
