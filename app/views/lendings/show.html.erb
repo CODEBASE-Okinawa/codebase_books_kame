@@ -1,2 +1,31 @@
-<h1>Lendings#show</h1>
-<p>Find me in app/views/lendings/show.html.erb</p>
+<div class="res_show">
+    <div>
+        <%= image_tag @lending_book.book.image, {class: "book_image"} %>
+    </div>
+    <div>
+        <div class="book_title">
+            <%= @lending_book.book.title %>
+        </div>
+        <div class="book_author">
+            <%= @lending_book.book.author %> 著
+        </div>
+        <div class="index_status_wrap status_size">
+            貸出しています
+        </div>
+        <div>
+            <%= button_to "本を返却する", {controller: "lendings", action: "edit"}, {method: :get, class: "res_can_button"} %>
+        </div>
+
+        <% if @lending_book.return_date > Date.yesterday %>
+            <div class="show_res_period_text">
+                以下の日程で貸出しています
+            </div>
+            <p class="show_res_period">
+                <%= @lending_book.lend_date %> から
+                <%= @lending_book.return_date %> まで
+            </p>
+        <% else %>
+            <p class="return_alert">返却日が過ぎています！<br>早めに返却をお願いします！</p>
+        <% end %>
+    </div>
+</div>

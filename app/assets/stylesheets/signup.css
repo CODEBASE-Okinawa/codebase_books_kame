@@ -30,3 +30,19 @@
     display: inline-block;
     text-align: left;
 }
+
+.notice {
+    width: 200px;
+    margin: auto;
+    border-radius: 9999px;
+    background-color: #E6FFE9;
+    padding: 10px;
+}
+
+.alert {
+    width: 205px;
+    margin: auto;
+    border-radius: 9999px;
+    background-color: #FFD5EC;
+    padding: 10px;
+}

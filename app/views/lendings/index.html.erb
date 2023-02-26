@@ -1,1 +1,22 @@
-<h3>借りた本一覧</h3>
+<div class="wrapper">
+    <h3 class="page_title">借りた本一覧</h3>
+
+    <% if !@lending_books.nil? %>
+        <% @lending_books.each do |lending_book| %>
+            <%= link_to lending_path(lending_book.book_id), class: "index_wrap" do %>
+                <div class="index_list_wrap">
+                    <div class="index_image_wrap">
+                        <%= image_tag lending_book.book.image , class: "index_image" %>
+                    </div>
+                    <div>
+                        <p class="index_list_title">『&nbsp;<%= lending_book.book.title%>&nbsp;』</p>
+                        <p class="index_auther"><span class="ml-15"><%= lending_book.book.author%></span><span class="ml-10">著</span></p>
+                        <p class="index_res_period">
+                            <%= lending_book.lend_date %>  から  <%= lending_book.return_date %> まで
+                        </p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    <% end %>
+</div>

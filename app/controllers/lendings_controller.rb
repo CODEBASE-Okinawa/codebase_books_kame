@@ -8,26 +8,30 @@ class LendingsController < ApplicationController
 
     def show
         @reservation_books = current_user.lendings.where(book_id:params[:id], status:0).first
-
-    end
-
-    def new
-        @lending = Lending.new
+        @lending_book = current_user.lendings.where(book_id:params[:id], status:0).first
     end
 
     def create
-        lending = Lending.new(lending_params)
-        if lending.save!
-            redirect_to books_url, notice: "貸出完了"
+        if !current_user.nil?
+            @lending_book = Lending.new(lending_params(params))
+            if @lending_book.save
+                redirect_to lendings_url, notice: "貸出完了"
+            else
+                render :show
+            end
         else
-            # render :new
-            redirect_to books_url
+            redirect_to new_user_session_path
         end
     end
 
+    def edit
+        current_user.lendings.where(book_id: params[:id], status: 0).first.update(status:1)
+        redirect_to book_path, notice:"本を返却しました"
+    end
 
     private
-    def lending_params
-        params.require(:lending).permit(:lend_date)
+    def lending_params(data)
+        @lending_books = {user_id: current_user.id, book_id: data[:book_id], lend_date: data[:reserved_start], return_date: data[:reserved_end]}
     end
+
 end
