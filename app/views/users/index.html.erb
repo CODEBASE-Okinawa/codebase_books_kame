@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <h3 class="page_title">ユーザー一覧</h3>
+
+    <div class="index_list_wrap">
+        <div class="user_list">
+            <span class="mw">名前</span>
+            <span class="mw">メールアドレス</span>
+            <span class="mw">登録日</span>
+            <span class="mw">累計貸出数</span>
+        </div>
+    </div>
+
+    <% @users.each do |user| %>
+        <div class="index_list_wrap">
+            <div class="user_list">
+                <span class="user_content">
+                    <%= user.name %>
+                </span>
+                <span class="user_content">
+                    <%= user.email %>
+                </span>
+                <span class="user_content">
+                    <%= l user.created_at %>
+                </span>
+                <span class="user_content">
+                    <% if !@lended_books.nil? %>
+                        <%= @lended_books.where(user_id: user).count %> 冊
+                    <% end %>
+                </span>
+            </div>
+        </div>
+    <% end %>
+</div>

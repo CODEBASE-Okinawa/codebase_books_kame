@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   # development環境ではメールを送信する代わりに、指定のブラウザでプレビュー
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
