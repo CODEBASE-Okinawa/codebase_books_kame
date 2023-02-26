@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  # ユーザーと管理者のコントローラーです。
 
   def index
     @books = Book.all
@@ -12,7 +11,6 @@ class BooksController < ApplicationController
   def show
     @lendings_status = Lending.all.where(status:0, book_id:params[:id]).first
     @reservation_status_list = Reservation.all.where('status = ? and reserved_start >= ? and book_id = ?', 0, Date.today, params[:id])
-    # @lendings_return_date = Lending.all.where(status:0, book_id:params[:id]).first
     @book = Book.find(params[:id])
     @lending_book = Lending.where(user_id: current_user.id, book_id: @book,status: 0).first unless current_user.nil?
     @reservation_book = Reservation.where(user_id: current_user.id, book_id: @book, status: 0).first unless current_user.nil?
