@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @lending_books = Lending.where(status: 0)
     @reservation_books = current_user.reservations.where(status: 0) unless current_user.nil?
-    @reserved_books = Reservation.where("reserved_end <= ?", Date.yesterday)
+    @reserved_books = Reservation.where("reserved_start <= ?", Date.yesterday)
     @reserved_books.destroy_all
   end
 
