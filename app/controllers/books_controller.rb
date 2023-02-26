@@ -3,7 +3,10 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @lending_books = Lending.where(status: 0)
-    @reservation_books = current_user.reservations.where(status: 0) unless current_user.nil?
+    # @reservation_books = current_user.reservations.where(status: 0) unless current_user.nil?
+    @reservation_books = Reservation.where(status: 0)
+    @users = User.all
+
     @reserved_books = Reservation.where("reserved_start <= ?", Date.yesterday)
     @reserved_books.destroy_all
   end

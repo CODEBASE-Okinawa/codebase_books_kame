@@ -1,10 +1,13 @@
 class LendingsController < ApplicationController
 
     def index
-         @lending_books = current_user.lendings.where(status: 0)  
+        # ログインしたユーザーの借りている本を表示させる
+        @lending_books = current_user.lendings.where(status: 0)
+        
     end
 
     def show
+        @reservation_books = current_user.lendings.where(book_id:params[:id], status:0).first
         @lending_book = current_user.lendings.where(book_id:params[:id], status:0).first
     end
 
