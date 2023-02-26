@@ -28,7 +28,7 @@ class LendingsController < ApplicationController
 
     private
     def lending_params(data)
-        @lending_books = {user_id: data[current_user.id], book_id: data[:book_id], lend_date: data[:reserved_start], return_date: data[:reserved_end]}
+        @lending_books = {user_id: current_user.id, book_id: data[:book_id], lend_date: data[:reserved_start], return_date: data[:reserved_end]}
     end
 
 end
