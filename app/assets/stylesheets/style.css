@@ -120,3 +120,32 @@ body {
     border-radius: 3px;
     margin: 20px 0 0 27px;
 }
+
+.mb {
+    margin-bottom: 0;
+}
+
+.status_size_book_show {
+   
+    font-size: 15px;
+    color: palevioletred;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    width: 110px;
+}
+
+.form-wrappe{
+    text-algn: left;
+}
+
+.return_date{
+    font-size:18px;
+}
+
+.lend_button{
+    margin:10px 5px 0 0;
+}
+
+.reserved_button{
+    margin:10px 0 0 5px;
+}
