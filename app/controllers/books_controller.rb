@@ -10,7 +10,10 @@ class BooksController < ApplicationController
     # return if current_user.nil?
 
     @lending_books = Lending.where(status: 0)
-    @reservation_books = current_user.reservations.where(status: 0) unless current_user.nil?
+    # @reservation_books = current_user.reservations.where(status: 0) unless current_user.nil?
+    @reservation_books = Reservation.where(status: 0)
+    @users = User.all
+
   end
 
   def show

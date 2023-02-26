@@ -20,14 +20,45 @@
                     <p class="index_auther"><span class="ml-15"><%= book.author %></span><span class="ml-10">著</span></p>
                     <div class="index_status_wrap">
 
-                        <% if !@lending_books.find_by(book_id: book).nil? %>
+                        <% if current_user.nil? && !@lending_books.find_by(book_id: book).nil?%>
                             <p>貸出中</p>
-                        <% elsif current_user.nil? || @lending_books.find_by(book_id: book).nil? %>
+                        <% elsif current_user.nil? && @lending_books.find_by(book_id: book).nil? %>
                             <p>貸出受付中</p>
                         <% end %>
 
-                        <% if !current_user.nil? && !@reservation_books.find_by(book_id: book).nil? %>
-                            <p>予約中</p>
+                        <%#<% if !current_user.nil? && !@reservation_books.find_by(book_id: book).nil? %>
+                            <%#<p>予約中</p>
+                        <%#<% end %>
+
+                          <%# userログイン中 %> 
+                        <% if !current_user.nil? && current_user.status == 1 %>
+
+                            <% if !@lending_books.find_by(book_id: book).nil? %>
+                                <p>貸出中</p>
+                            <% elsif %>
+                                <p>貸出受付中</p>
+                            <% end %>
+
+                            <% if !@reservation_books.where(user_id:current_user.id ,book_id: book).empty? %>
+                                <p>予約中</p>
+                            <% end %> 
+
+                        <% end %>
+
+                        <%# adminログイン中 %> 
+                        <% if !current_user.nil? && current_user.status == 0 %>
+                            
+                            <% if !@lending_books.where(book_id: book).empty? %>
+                                <p><span style="margin-left:-4px; border-radius : 3px 0 0 3px ; padding:5px ; color:#fff ; background-color: palevioletred;">貸出中</span>
+                                    <span style="font-weight:bold; margin:0 3px;"></span><%= @lending_books.find_by(user_id: @users).user.name %>
+                                    <span style="font-weight:bold; margin:0 3px;"></span><%= @lending_books.find_by(user_id: @users).user.email %>
+                                </p>
+                            <% end %>
+
+                            <% if !@reservation_books.where(book_id: book).empty? %>
+                                <p>予約中</p>
+                            <% end %>
+
                         <% end %>
 
                     </div>
