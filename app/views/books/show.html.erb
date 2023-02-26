@@ -3,10 +3,10 @@
     <%= image_tag @book.image.variant(:display) %>
 <% end %>
 
-<% unless @lendings_status %>
-    <p>貸出可能</p>
-<% else %>
+<% if !@lendings_status.nil? %>
     <p>貸出中</p>
+<% else %>
+    <p>貸出可能</p>
 <% end %>
 
 <%= form_with url: reservations_path, local: true do |f| %>
@@ -25,12 +25,14 @@
     <%= f.submit "予約する", class: "btn btn-primary" %>
 <% end %>
 
-<% if @reservation_status %>
+<% if !@reservation_status_list.empty? %>
     <p>以下の予定が入っています。</p>
     <p>日程が被らないように貸出・予約をしましょう。</p>
-    <% @reservation_status.each do |day|%>
-        <p> <%= day["created_at"] %> から <%= day["updated_at"] %> まで </p>
+    <% @reservation_status_list.each do |day|%>
+     <p> <%= day["reserved_start"] %> ~ <%= day["reserved_end"] %> </p>
     <% end %>
+<% elsif !@lendings_status.nil? == true then %> 
+    <p>現在貸出中です。<%= @lendings_status["return_date"] %>に返却される予定です。</P>
 <% end %>
 
 
